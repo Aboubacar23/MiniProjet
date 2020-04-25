@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EquipeController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1 class="text-white bg-dark">liste de toutes les equipes</h1>
+    <table class="table table-dark">
+        <tr>
+            <td> Id </td>
+            <td> Nom </td>
+        </tr>
+    {% for e in equipes %}
+       <tr>
+           <td>{{ e.id}}</td>
+           <td>{{ e.nom}}</td>
+           <td><a href="{{path('sup_equipe',{'id':e.id})}}">Supprimer</a></td>
+           <td><a href="{{path('show_equipe',{'id':e.id})}}">Detaile</a></td>
+           <td><a href="{{path('edit_equipe',{'id':e.id})}}">Modifier</a></td>
+        </tr>
+    {% else %}   
+
+  <h2> la table equipe est vide </h2>
+    {% endfor %}
+    </table>
+    <p><a href="{{path('add_equipe')}}">Ajouter un membre</a></p>
+</div>
+{% endblock %}
