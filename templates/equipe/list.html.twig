@@ -19,9 +19,10 @@
        <tr>
            <td>{{ e.id}}</td>
            <td>{{ e.nom}}</td>
-           <td><a href="{{path('sup_equipe',{'id':e.id})}}">Supprimer</a></td>
-           <td><a href="{{path('show_equipe',{'id':e.id})}}">Detaile</a></td>
-           <td><a href="{{path('edit_equipe',{'id':e.id})}}">Modifier</a></td>
+           
+           <td><a href="{{path('edit_equipe',{'id':e.id})}}"><i class="fas fa-edit"></i></a></td>
+           <td><a href="{{path('show_equipe',{'id':e.id})}}"><i class="fas fa-eye"></i></a></td>
+           <td><a href="{{path('sup_equipe',{'id':e.id})}}"><i class="fas fa-trash-alt"></i></a></td>
         </tr>
     {% else %}   
 

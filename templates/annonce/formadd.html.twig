@@ -9,9 +9,11 @@
 </style>
 
 <div class="example-wrapper">
-     <h1> Statut {{ etablissement.id}}</h1>
-     <h1> Nom: {{ etablissement.nom}}</h1>
-
-     <td><a href="{{path('list_etablissement')}}">retour</a></td>
+    <h1>{{ btn }} une Annonce </h1>
+    
+     {{ form_start(form) }}
+     {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">{{ btn }}</button>
+     {{ form_end(form) }}
 </div>
 {% endblock %}

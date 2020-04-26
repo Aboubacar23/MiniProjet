@@ -29,7 +29,7 @@ class Annonce
     /**
      * @ORM\Column(type="date")
      */
-    private $Data_Ajout;
+    private $Date;
 
     public function getId(): ?int
     {
@@ -60,14 +60,14 @@ class Annonce
         return $this;
     }
 
-    public function getDataAjout(): ?\DateTimeInterface
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->Data_Ajout;
+        return $this->Date;
     }
 
-    public function setDataAjout(\DateTimeInterface $Data_Ajout): self
+    public function setDate(\DateTimeInterface $Date): self
     {
-        $this->Data_Ajout = $Data_Ajout;
+        $this->Date = $Date;
 
         return $this;
     }

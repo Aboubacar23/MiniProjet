@@ -2,10 +2,13 @@
 
 namespace App\Form;
 
+use DateTime;
 use App\Entity\Annonce;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class AnnonceType extends AbstractType
 {
@@ -13,11 +16,12 @@ class AnnonceType extends AbstractType
     {
         $builder
             ->add('Titre')
-            ->add('Contenu')
-            ->add('Data_Ajout')
+            ->add('Contenu',TextareaType::class,['attr'=>['class'=>'tnymce']])
+            ->add('Date',DateType::class)
         ;
     }
 
+    
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
