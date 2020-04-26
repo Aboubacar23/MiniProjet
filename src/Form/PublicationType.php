@@ -2,10 +2,15 @@
 
 namespace App\Form;
 
+use App\Entity\Membre;
 use App\Entity\Publication;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
 
 class PublicationType extends AbstractType
 {
@@ -14,9 +19,26 @@ class PublicationType extends AbstractType
         $builder
             ->add('Titre')
             ->add('Auteur')
-            ->add('Document')
-            ->add('Date_publication')
-            ->add('Membre')
+            ->add('Document',FileType::class, [
+                'label'=> 'Document (pdf file)',
+                'mapped'=>false,
+                'required'=>false,
+                'constraints'=>[
+                    new File([
+                        'maxSize' => '1073741824k',
+                        'mimeTypes'=> [
+                            'application/pdf',
+                            'application/x-pdf'
+                        ],
+                        'mimeTypesMessage'=>'veuillez choisir un document pdf',
+                    ])
+                ]
+            ])
+            ->add('Date_publication',DateType::class)
+            ->add('Membre',EntityType::class, [
+                'class'=>Membre::class,
+                'choice_label'=>'nom'
+            ])
         ;
     }
 

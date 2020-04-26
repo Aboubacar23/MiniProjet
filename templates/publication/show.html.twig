@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publication{% endblock %}
+
+{% block body %}
+    <h1>Publication  {{publication.id }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ publication.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ publication.Titre }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ publication.Auteur }}</td>
+            </tr>
+            <tr>
+                <th>Document</th>
+                <td>{{ publication.Document }}</td>
+            </tr>
+            <tr>
+                <th>Date_publication</th>
+                <td>{{ publication.DatePublication ? publication.DatePublication|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('publication_index') }}">Retour</a> 
+
+    <a href="{{ path('publication_edit', {'id': publication.id}) }}"><i class="fas fa-edit"></i></a>
+
+    {{ include('publication/_delete_form.html.twig') }}
+{% endblock %}
