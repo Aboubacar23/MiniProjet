@@ -10,13 +10,14 @@
 
 <div class="example-wrapper">
     <h1 class="text-white bg-dark">liste de tous les membres</h1>
-    <table class="table table-dark">
+    <table class="table table-striped">
         <tr>
             <td> id membre </td>
             <td> Cin </td>
             <td> Nom </td>
             <td> Prenom </td>
-            <td> Age </td>
+            <td> Email </td>
+            <td> Adresse </td>
             <td> Equipe </td>
             <td> Statut </td>
             <td> Etablissement </td>
@@ -27,7 +28,8 @@
            <td>{{ m.cin}}</td>
            <td>{{ m.nom}}</td>
            <td>{{ m.prenom}}</td>
-           <td>{{ m.age}}</td>
+           <td>{{ m.email}}</td>
+           <td>{{ m.adresse}}</td>
            <td>{{ m.equipe.nom}}</td>
            <td>{{ m.statut.nom}}</td>
            <td>{{ m.etablissement.nom}}</td>
@@ -37,7 +39,7 @@
         </tr>
     {% else %}   
 
-  <h2> la table equipe est vide </h2>
+  <h2> la table membre est vide </h2>
     {% endfor %}
     </table>
     <p><a href="{{path('add_membre')}}">Ajouter un membre</a></p>

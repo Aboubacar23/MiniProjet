@@ -8,6 +8,7 @@ use App\Entity\Membre;
 use App\Entity\Statut;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,7 +20,7 @@ class MembreType extends AbstractType
             ->add('Cin')
             ->add('Nom')
             ->add('Prenom')
-            ->add('Email')
+            ->add('Email',EmailType::class)
             ->add('Adresse')
             ->add('Statut',EntityType::class,[
                 'class'=>Statut::class,

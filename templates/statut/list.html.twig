@@ -23,6 +23,7 @@
            <td>{{ s.nom}}</td>
            <td><a href="{{path('sup_statut',{'id':s.id})}}">Supprimer</a></td>
            <td><a href="{{path('show_statut',{'id':s.id})}}">Detaile</a></td>
+           <td><a href="{{path('edit_statut',{'id':s.id})}}">Modifier</a></td>
         </tr>
     {% else %}   
 

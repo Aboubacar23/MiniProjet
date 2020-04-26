@@ -37,8 +37,8 @@ class EtablissementController extends AbstractController
              return $this->redirectToRoute("list_etablissement");
         }
 
-        return $this->render('etablissement/form_add.html.twig', [
-            'form' => $form->createView(),'btn'=>'Ajouter Etablissement'
+        return $this->render('etablissement/formadd.html.twig', [
+            'form' => $form->createView(),'btn'=>'Ajouter'
         ]);
     }
 
@@ -64,8 +64,8 @@ class EtablissementController extends AbstractController
              return $this->redirectToRoute("list_etablissement");
         }
 
-        return $this->render('etablissement/form_add.html.twig', [
-            'form' => $form->createView(),'btn'=>'Modifier Etablissement'
+        return $this->render('etablissement/formadd.html.twig', [
+            'form' => $form->createView(),'btn'=>'Modifier'
         ]);
     }
 
@@ -79,7 +79,7 @@ class EtablissementController extends AbstractController
         $etablissement= $this->getDoctrine()->getRepository(Etablissement::class)->findAll();
 
 
-        return $this->render('membre/list.html.twig', [
+        return $this->render('etablissement/list.html.twig', [
             'etablissements' => $etablissement,
         ]);
     }

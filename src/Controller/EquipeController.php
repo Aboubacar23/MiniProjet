@@ -37,8 +37,8 @@ class EquipeController extends AbstractController
              return $this->redirectToRoute("list_equipe");
         }
 
-        return $this->render('equipe/form_add.html.twig', [
-            'form' => $form->createView(),'btn'=>'Ajouter Equipe'
+        return $this->render('equipe/formadd.html.twig', [
+            'form' => $form->createView(),'btn'=>'Ajouter'
         ]);
     }
 
@@ -64,8 +64,8 @@ class EquipeController extends AbstractController
              return $this->redirectToRoute("list_equipe");
         }
 
-        return $this->render('equipe/form_add.html.twig', [
-            'form' => $form->createView(),'btn'=>'Modifier Equipe'
+        return $this->render('equipe/formadd.html.twig', [
+            'form' => $form->createView(),'btn'=>'Modifier'
         ]);
     }
 
@@ -79,7 +79,7 @@ class EquipeController extends AbstractController
         $equipe= $this->getDoctrine()->getRepository(Equipe::class)->findAll();
 
 
-        return $this->render('membre/list.html.twig', [
+        return $this->render('equipe/list.html.twig', [
             'equipes' => $equipe,
         ]);
     }
@@ -108,11 +108,10 @@ class EquipeController extends AbstractController
         return $this->redirectToRoute('list_equipe');
     }
 
-
-
-    //afficher detaile  d'unee equipe
+    //afficher detaile  d'un membre
+       
     /**
-     * @Route("/show/{id}", name="show_equipe)
+     * @Route("/show/{id}", name="show_equipe")
      */
     public function show($id)
     {
@@ -136,6 +135,7 @@ class EquipeController extends AbstractController
     /**
      * @Route("/equipe", name="equipe")
      */
+
     public function index()
     {
         return $this->render('equipe/index.html.twig', [

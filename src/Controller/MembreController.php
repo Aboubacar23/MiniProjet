@@ -36,7 +36,7 @@ class MembreController extends AbstractController
              return $this->redirectToRoute("list_membre");
         }
 
-        return $this->render('membre/form_add.html.twig', [
+        return $this->render('membre/formadd.html.twig', [
             'form' => $form->createView(),'btn'=>'Ajouter'
         ]);
     }
@@ -110,6 +110,7 @@ class MembreController extends AbstractController
 
 
        //afficher detaile  d'un membre
+       
     /**
      * @Route("/show/{id}", name="show_membre")
      */

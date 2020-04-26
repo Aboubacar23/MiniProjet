@@ -8,6 +8,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+     /**
+     * @Route("/statut")
+     */
+
 class StatutController extends AbstractController
 {
 
@@ -34,7 +38,7 @@ class StatutController extends AbstractController
              return $this->redirectToRoute("list_statut");
         }
 
-        return $this->render('statut/form_add.html.twig', [
+        return $this->render('statut/formadd.html.twig', [
             'form' => $form->createView(),'btn'=>'Ajouter'
         ]);
     }
@@ -61,7 +65,7 @@ class StatutController extends AbstractController
              return $this->redirectToRoute("list_statut");
         }
 
-        return $this->render('statut/form_add.html.twig', [
+        return $this->render('statut/formadd.html.twig', [
             'form' => $form->createView(),'btn'=>'Modifier'
         ]);
     }
@@ -76,7 +80,7 @@ class StatutController extends AbstractController
         $statut= $this->getDoctrine()->getRepository(Statut::class)->findAll();
 
 
-        return $this->render('membre/list.html.twig', [
+        return $this->render('statut/list.html.twig', [
             'statuts' => $statut,
         ]);
     }
@@ -84,7 +88,7 @@ class StatutController extends AbstractController
     //supprimer une equipe
 
     /**
-     * @Route("/sup/{id}", name="sup_etablissement")
+     * @Route("/sup/{id}", name="sup_statut")
      */
     public function delete($id)
     {
@@ -106,9 +110,11 @@ class StatutController extends AbstractController
         return $this->redirectToRoute('list_statut');
     }
 
-    //afficher detaile  d'un statut
+
+       //afficher detaile  d'un statut
+       
     /**
-     * @Route("/show/{id}", name="show_statut)
+     * @Route("/show/{id}", name="show_statut")
      */
     public function show($id)
     {
